@@ -133,7 +133,7 @@ export class BargraphService {
                 .attr('class', 'd3-tip')
                 .offset([-25, 0])
                 .html(function(d) {
-                    return  "<p class='text-semibold'>Date " + 'nov 2, 2018' + "</p>"+"<p class='text-semibold'> Time " + '2 PM' + "</p>"+"<p class='text-semibold'> Age " + '25' + "</p>";
+                    return  "<p class='text-semibold'>Date: " + 'nov 2, 2018' + "</p>"+"<p class='text-semibold'> Time: " + '2 PM' + "</p>"+"<p class='text-semibold'> Age: " + '25' + "</p>";
                 })
 
             // Initialize tooltip
