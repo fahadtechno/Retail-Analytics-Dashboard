@@ -1,0 +1,269 @@
+<!-- Main content -->
+
+<!-- Page header -->
+<div class="page-header page-header-default">
+  <div class="page-header-content">
+    <div class="page-title">
+      <h4>
+        <i class="icon-arrow-left52 position-left"></i>
+        <span class="text-semibold">Home</span> - Dashboard</h4>
+    </div>
+
+    <!-- <div class="heading-elements">
+        <div class="heading-btn-group">
+          <a href="#" class="btn btn-link btn-float text-size-small has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+          <a href="#" class="btn btn-link btn-float text-size-small has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+          <a href="#" class="btn btn-link btn-float text-size-small has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+        </div>
+      </div> -->
+  </div>
+
+  <div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="icon-home2 position-left"></i> Home</a>
+      </li>
+      <li class="active">Dashboard</li>
+    </ul>
+
+    <ul class="breadcrumb-elements">
+      <li>
+        <a class="dateRange">From:</a>
+      </li>
+      <li>
+        <form class="date" [formGroup]="fromDate" novalidate>
+          <my-date-picker name="fromDate" [options]="myDatePickerOptions" [placeholder]="placeholder" formControlName="fromDate"></my-date-picker>
+        </form>
+      </li>
+      <li>
+
+      </li>
+      <li>
+        <a class="dateRange">To:</a>
+      </li>
+      <li>
+        <form class="date" [formGroup]="toDate" novalidate>
+          <my-date-picker name="toDate" [options]="myDatePickerOptions" [placeholder]="placeholder" formControlName="toDate"></my-date-picker>
+        </form>
+      </li>
+      <li class="dropdown store">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <!-- <i class="icon-gear position-left"></i> -->
+          <span style="font-weight:bold">Store :</span>
+          {{store}}
+          <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a (click)="store='Malir Branch'">
+              <i class="icon-statistics"></i> Malir Branch</a>
+          </li>
+          <li>
+            <a (click)="store='Nazimabad Branch'">
+              <i class="icon-statistics"></i> Nazimabad Branch</a>
+          </li>
+          <li>
+            <a (click)="store='Gulshan Branch'">
+              <i class="icon-statistics"></i> Gulshan Branch</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a (click)="store='Johar Branch'">
+              <i class="icon-statistics"></i> Johar Branch</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="go" href="#">
+          <i class="glyphicon glyphicon-arrow-right"></i> Go</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /page header -->
+
+
+<!-- Content area -->
+<div class="content">
+
+  <!-- Main charts -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-flat">
+        <div class="panel-heading">
+          <h2 class="panel-title">Customer Journey</h2>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <!-- <div class="funnel" #funnel></div>                   -->
+                <div class="col-lg-8">
+                  <div class="example-config">
+                    <!-- <div>
+                              <label for="neckRatio">Neck ratio ({{ neckRatio | number:'1.2-2' }})</label>
+                            </div> -->
+                    <!-- <kendo-slider
+                                id="neckRatio"
+                                [min]="0"
+                                [max]="5"
+                                [smallStep]="0.1"
+                                [(ngModel)]="neckRatio"
+                                [showButtons]="false"
+                                tickPlacement="none">
+                            </kendo-slider> -->
+                  </div>
+                  <div class="funnel">
+                    <div id="chartdiv"></div>
+                  </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="progress blue">
+                    <span class="progress-left">
+                      <span class="progress-bar"></span>
+                    </span>
+                    <span class="progress-right">
+                      <span class="progress-bar"></span>
+                    </span>
+                    <div class="progress-value">15300 $</div>
+                  </div>
+
+                  <!-- <div class="chart svg-center" id="d3-donut-arc-tween" #donut></div> -->   <!-- DONUT LOADER --> 
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="position-relative cust_jour" id="traffic-sources"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-flat">
+        <div class="panel-heading">
+          <h2 class="panel-title">Insights</h2>
+        </div>
+        <div class="container-fluid">
+          <div class="row grid-divider">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="insights-header">
+                  <h3>17:48</h3>
+                  <h5>Dwell Time</h5>
+                </div>
+                <div style="float: right;">
+                  <h3>
+                    <span class="text-success-600 trend">
+                      <i class="icon-stats-growth2 position-left"></i> 3.12%</span>
+                  </h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="chart" id="d3-bar-sortable-vertical" #dwell_time></div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="row">
+                <div class="row">
+                  <div class="insights-header">
+                    <h3>Grocery</h3>
+                    <h5>Most Visited Spot</h5>
+                  </div>
+                  <div style="float: right;">
+                    <h3>
+                      <span class="text-success-600 trend">
+                        <i class="icon-stats-growth2 position-left"></i> 6.89%</span>
+                    </h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="chart svg-center" id="d3-donut-update" #mostVis></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="row">
+                <div class="row">
+                  <div class="insights-header">
+                    <h3>58%</h3>
+                    <h5>Emotions</h5>
+                  </div>
+                  <div style="float: right;">
+                    <h3 style="float: right;">
+                      <span class="text-danger trend">
+                        <i class="icon-stats-decline2 position-left"></i> - 5.78%</span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="chart svg-center" id="d3-donut-entry-animation" #emotions></div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="position-relative" id="traffic-sources"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-flat">
+        <div class="panel-heading">
+          <h2 class="panel-title">Customer Demographics</h2>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- <p class="content-group">
+                      <label class="radio-inline"><input type="radio" name="stacked-multiple" class="stacked-multiple" value="multiples" checked="checked"> Multiples</label>
+                      <label class="radio-inline"><input type="radio" name="stacked-multiple" class="stacked-multiple" value="stacked"> Stacked</label>
+                    </p> -->
+              <div class="chart" id="d3-bar-stacked-multiples" #cust_demo></div>
+              <br>
+              <br>
+              <!-- <highcharts-chart 
+                  [Highcharts]="BarGraph"
+                  [options]="barGraph"
+                  style="width: 100%; height: 350px; display: block;"
+                ></highcharts-chart> -->
+            </div>
+          </div>
+        </div>
+        <div class="position-relative" id="traffic-sources"></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /main charts -->
+
+
+  <!-- Dashboard content -->
+
+  <!-- /dashboard content -->
+
+
+  <!-- Footer -->
+  <div class="footer text-muted">
+    &copy; 2018.
+    <a href="#">Copyright</a> IX
+  </div>
+  <!-- /footer -->
+
+</div>
+<!-- /content area -->
+
+<!-- </div> -->
+<!-- /main content -->
