@@ -82,7 +82,8 @@ export class DashboardComponent implements OnInit {
     "chartCursor": {
         "categoryBalloonEnabled": false,
         "cursorAlpha": 0,
-        "zoomable": false
+        "zoomable": true,
+        "oneBalloonOnly": true
       },
     "dataProvider": [{
         "title": "Downloads",
@@ -119,11 +120,12 @@ export class DashboardComponent implements OnInit {
         "alphaField": "alpha",
         "lineAlpha": 0,
         "showBalloon": false,
+        "fontSize": 12,
         "valueField": "value2",
         "fillAlphas": 0,
         "bulletSize": 40,
         "labelPosition": "middle",
-        "color": "#000"
+        "color": "#000",
     }, {
         "fillAlphas": 1,
         "fillToGraph": "fromGraph",
@@ -131,6 +133,7 @@ export class DashboardComponent implements OnInit {
         "lineColorField": "color",
         "fillColorsField": "color",
         "showBalloon": true,
+        "fontSize": 12,
         "valueField": "value",
         "labelText": "[[value]]",
         "bullet": "round",
@@ -138,6 +141,7 @@ export class DashboardComponent implements OnInit {
         "balloonText": "<span style='font-size:15px;'>[[value]]</span>"
     }],
     "categoryField": "category",
+    "minMarginLeft": 50,
     "categoryAxis": {
         "startOnAxis": true,
         "axisAlpha": 0.1,
@@ -145,7 +149,8 @@ export class DashboardComponent implements OnInit {
         "gridAlpha": 0.1,
         "tickLength": 20,
         "tickPosition": "start",
-        "showLastLabel": false
+        "showLastLabel": false,
+        "fontSize": 13
     }
 });
 
@@ -167,7 +172,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this._barGraph.customerDemographics(this.cust_demo.nativeElement, 400);
-    this._barGraph.dwellTime(this.dwell_time.nativeElement, 280);
+    this._barGraph.dwellTime(this.dwell_time.nativeElement, 270);
     this._pieChart.emotions(this.emotions.nativeElement,130);
     this._pieChart.mostVisSpot(this.mostVis.nativeElement, 130);
     // this._donut.donutLoader(this.donut.nativeElement,50)
